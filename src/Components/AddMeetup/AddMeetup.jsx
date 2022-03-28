@@ -1,5 +1,7 @@
 // User should be able to add/create new meetups 
 import { useState } from "react";
+import { addMeetup } from "../../Redux/meetup/action";
+import { useDispatch } from "react-redux";
 
 export const AddMeetup = () => {
 
@@ -19,8 +21,33 @@ export const AddMeetup = () => {
     });
   }
 
-  function handleSubmit(){
-    
+  const dispatch = useDispatch();
+  async function getMeetups(){
+    try{
+      let res = await fetch("http://localhost:8080/meetups");
+      let res_data = await res.json();
+
+      dispatch(addMeetup(res_data));
+    }catch(error){
+      console.log(error);
+    }
+  }
+
+  async function handleSubmit(){
+    try{
+      await fetch("http://localhost:8080/meetups", {
+        method : "POST", 
+        body : JSON.stringify(meetup),
+        headers : {
+          "Content-Type" : "application/json"
+        }
+      });
+
+      getMeetups();
+
+    }catch(error){
+      console.log(error);
+    }
   }
 
   return (

@@ -15,5 +15,16 @@
       "id": 1
     }
   ],
-  "meetups": []
+  "meetups": [
+    {
+      "title": "tech_talk",
+      "location": "bangalore",
+      "date": "2022-01-01",
+      "time": "10:12",
+      "theme": "technology",
+      "description": "casual tech talk",
+      "image": "tech.jpg",
+      "id": 1
+    }
+  ]
 }
