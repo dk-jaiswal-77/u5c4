@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "name": "dhirendra",
+      "password": "masai",
+      "location": "bangalore",
+      "interests": [
+        "movies",
+        "technology",
+        "drama",
+        "art"
+      ],
+      "image": "dhiren.jpg",
+      "subscribed": [],
+      "id": 1
+    }
+  ],
+  "meetups": []
+}
