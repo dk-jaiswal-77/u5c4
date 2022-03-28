@@ -13,14 +13,31 @@ export const AddMeetup = () => {
     image : ""
   });
 
+  function handleChange(e){
+    setMeetup({
+      ...meetup, [e.target.className] : e.target.value
+    });
+  }
+
+  function handleSubmit(){
+    
+  }
+
   return (
     <div className="addMeetupContainer">
-      <form>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}>
         <h1>Add Meetup</h1>
         <label>title</label>
-        <input type="text" className="title" value={meetup.title} onChange={() => { }} required />
+        <input type="text" className="title" value={meetup.title} onChange={(event) => {
+          handleChange(event);
+         }} required />
         <label>Location</label>
-        <select className="location" value={meetup.location} onChange={(event) => { }}>
+        <select className="location" value={meetup.location} onChange={(event) => { 
+          handleChange(event);
+        }}>
           <option value=""></option>
           <option value="bangalore">Bangalore</option>
           <option value="kolkata">Kolkata</option>
@@ -33,7 +50,9 @@ export const AddMeetup = () => {
           type="text"
           className="date" 
           value={meetup.date} 
-          onChange={(event) => { }}
+          onChange={(event) => {
+            handleChange(event);
+           }}
           placeholder="format YYYY-MM-DD"
           required
         />
@@ -43,13 +62,17 @@ export const AddMeetup = () => {
           type="text"
           className="time"  
           value={meetup.time} 
-          onChange={(event) => { }}
+          onChange={(event) => { 
+            handleChange(event);
+          }}
           placeholder="format HH:MM"
           required
         />
         <br />
         <label>Theme</label>
-        <select value={meetup.theme} className="theme" onChange={(event) => { }}>
+        <select value={meetup.theme} className="theme" onChange={(event) => { 
+          handleChange(event);
+        }}>
           <option value="">-----------</option>
           <option value="technology">Technology</option>
           <option value="food">Food</option>
@@ -63,7 +86,9 @@ export const AddMeetup = () => {
           type="text"
           className="description" 
           value={meetup.description} 
-          onChange={(event) => { }}
+          onChange={(event) => { 
+            handleChange(event);
+          }}
           placeholder="Description"
           required
         />
@@ -73,7 +98,9 @@ export const AddMeetup = () => {
           type="text"
           className="image" 
           value={meetup.image} 
-          onChange={(event) => { }}
+          onChange={(event) => {
+            handleChange(event);
+           }}
           required
         />
         <br />
